@@ -3,6 +3,10 @@ const fetch = require("node-fetch");
 
 const app = express();
 
+app.get("/", (req, res) => {
+  res.send("ok");
+});
+
 app.get("/tefas/:fon", async (req, res) => {
   const fon = req.params.fon;
 
@@ -31,4 +35,5 @@ app.get("/tefas/:fon", async (req, res) => {
   }
 });
 
-app.listen(3000, () => console.log("server çalışıyor"));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log("server çalışıyor"));
